@@ -2,51 +2,23 @@
 <Module>
     <ModulePrefs title="mc" />
     <Content type="html"><![CDATA[
-        <head>
-            <style>
-                pre {
-                    background-color: #f4f4f4;
-                    border: 1px solid #ccc;
-                    padding: 10px;
-                    overflow: auto;
-                    white-space: pre-wrap;
-                }
-            </style>
-        </head>
-        <body>
-            <div id="codeContainer">Loading...</div>
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const mcurl = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
-                    fetch(mcurl)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.text();
-                        })
-                        .then(html => {
-                            // Render the HTML content
-                            document.getElementById('codeContainer').innerHTML = html;
-
-                            // Find and execute any scripts in the fetched HTML
-                            const scriptTags = document.getElementById('codeContainer').getElementsByTagName('script');
-                            for (const script of scriptTags) {
-                                const newScript = document.createElement('script');
-                                newScript.type = 'text/javascript';
-                                if (script.src) {
-                                    newScript.src = script.src; // External script
-                                } else {
-                                    newScript.text = script.innerHTML; // Inline script
-                                }
-                                document.body.appendChild(newScript); // Append the script to the body
-                            }
-                        })
-                        .catch(error => {
-                            document.getElementById('codeContainer').textContent = 'Error fetching the HTML code: ' + error.message;
-                        });
-                });
-            </script>
-        </body>
+<body>
+   <script>
+      document.createElement("div");
+      const mcurl = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
+      fetch(mcurl)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.text();
+          }).then(html => {
+              document.getElementById('div').innerHTML = html;
+              document.body.appendChild(wrapper);
+          }).catch(error => {
+              document.getElementById('div').textContent = 'Error fetching the HTML code: ' + error.message;
+          });
+   </script>
+</body>
     ]]></Content>
 </Module>
