@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="mc" />
+<Content type="html"><![CDATA[
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mcurl = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
+            fetch(mcurl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById('codeContainer').textContent = html;
+                })
+                .catch(error => {
+                    document.getElementById('codeContainer').textContent = 'Error fetching the HTML code: ' + error.message;
+                });
+      }
+</script>
+]]></Content>
+</Module>
