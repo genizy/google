@@ -9,13 +9,13 @@
 </head>
 <body>
     <script>
-        const url = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
-        fetch(url)
-            .then(response => {
-                return response.text();
+        const mcurl = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
+        fetch(mcurl)
+            .then(mcresponse => {
+                return mcresponse.text();
             })
-            .then(html => {
-                document.getElementById('codeContainer').textContent = html;
+            .then(mchtml => {
+                document.getElementById('codeContainer').textContent = mchtml;
             });
     </script>
 </body>
