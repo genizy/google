@@ -11,13 +11,19 @@
     <script>
         const mcurl = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
         fetch(mcurl)
-            .then(mcresponse => {
-                return mcresponse.text();
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
             })
-            .then(mchtml => {
-                document.getElementById('codeContainer').textContent = mchtml;
+            .then(html => {
+                document.getElementById('codeContainer').textContent = html;
+            })
+            .catch(error => {
+                // Handle errors (e.g., network issues)
+                document.getElementById('codeContainer').textContent = 'Error fetching the HTML code: ' + error.message;
             });
-    </script>
 </body>
 </html>
 
