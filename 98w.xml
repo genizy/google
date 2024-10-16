@@ -18,7 +18,7 @@
                 .catch(error => {
                     document.getElementById('codeContainer').textContent = 'Error fetching the HTML code: ' + error.message;
                 });
-      }
+      });
 </script>
 ]]></Content>
 </Module>
