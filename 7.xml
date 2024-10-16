@@ -2,7 +2,20 @@
 <Module>
 <ModulePrefs title="mc" />
 <Content type="html"><![CDATA[
-<script>
+<head>
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <pre id="codeContainer">Loading...</pre>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mcurl = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
             fetch(mcurl)
@@ -13,12 +26,16 @@
                     return response.text();
                 })
                 .then(html => {
+                    // Display the HTML code inside the pre element
                     document.getElementById('codeContainer').textContent = html;
                 })
                 .catch(error => {
+                    // Handle errors (e.g., network issues)
                     document.getElementById('codeContainer').textContent = 'Error fetching the HTML code: ' + error.message;
                 });
-      });
-</script>
+        });
+    </script>
+</body>
+</html>
 ]]></Content>
 </Module>
