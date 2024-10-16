@@ -4,7 +4,6 @@
     <Content type="html"><![CDATA[
 <body>
    <script>
-      document.createElement("div");
       const mcurl = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
       fetch(mcurl)
           .then(response => {
@@ -13,10 +12,11 @@
               }
               return response.text();
           }).then(html => {
-              document.getElementById('div').innerHTML = html;
+              var wrapper = document.createElement("div");
+              wrapper.innerHTML = html;
               document.body.appendChild(wrapper);
           }).catch(error => {
-              document.getElementById('div').textContent = 'Error fetching the HTML code: ' + error.message;
+              throw new Error('Error fetching the HTML code: ' + error.message);
           });
    </script>
 </body>
