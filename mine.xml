@@ -2,13 +2,7 @@
 <Module>
 <ModulePrefs title="mc" />
 <Content type="html"><![CDATA[
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <script>
+<script>
         const mcurl = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
         fetch(mcurl)
             .then(response => {
@@ -21,11 +15,8 @@
                 document.getElementById('codeContainer').textContent = html;
             })
             .catch(error => {
-                // Handle errors (e.g., network issues)
                 document.getElementById('codeContainer').textContent = 'Error fetching the HTML code: ' + error.message;
             });
-</body>
-</html>
-
+</script>
 ]]></Content>
 </Module>
