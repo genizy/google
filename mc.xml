@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="Slope" />
+<ModulePrefs title="mc" />
 <Content type="html"><![CDATA[
-<iframe src="https://cdn.jsdelivr.net/gh/genizy/google/@main/mc.html" title="mc"></iframe>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        const url = "https://cdn.jsdelivr.net/gh/genizy/google/mc.html";
+        fetch(url)
+            .then(response => {
+                return response.text();
+            })
+            .then(html => {
+                document.getElementById('codeContainer').textContent = html;
+            });
+    </script>
+</body>
+</html>
+
 ]]></Content>
 </Module>
