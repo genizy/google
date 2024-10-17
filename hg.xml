@@ -126,7 +126,7 @@
               },
             ],
             mainMenu: {
-              splashes: ["whats up ramona h", "ok"],
+              splashes: ["ghram crackers"],
               eaglerLogo: false,
             },
           };
